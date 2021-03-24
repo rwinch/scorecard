@@ -1,0 +1,13 @@
+query FindPullRequestByTitle($query: String!) {
+  search(query: $query, type: ISSUE, first: 100) {
+    issueCount
+    nodes {
+      ... on PullRequest {
+        number
+        title
+        body
+        baseRefName
+      }
+    }
+  }
+}
